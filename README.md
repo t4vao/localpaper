@@ -53,6 +53,186 @@ Os nomes entre crases são páginas, frames, grupos ou textos do Figma.
 
 **Inferido:** o diferencial aparente é converter telemetria de documentos em uma leitura priorizada do interesse, incluindo score, documentos quentes, alertas e assistência por IA. A forma de cálculo e a confiabilidade desses sinais estão pendentes.
 
+## Direção comercial inicial
+
+> **Decisão confirmada pelo responsável pelo produto:** esta é a direção escolhida para validação antes da definição do frontend. Ela orienta o recorte inicial, mas não constitui prova de demanda, retenção ou disposição a pagar.
+
+### ICP recomendado
+
+O primeiro ICP será:
+
+- agências e consultorias B2B;
+- aproximadamente 2–20 pessoas;
+- vendas conduzidas pelo fundador ou por um pequeno time comercial;
+- envio recorrente de propostas em PDF;
+- ticket por negócio alto o bastante para tornar um follow-up perdido financeiramente relevante;
+- uso atual provável de e-mail, WhatsApp, anexos ou links de armazenamento;
+- operação comercial ainda sem acompanhamento sofisticado de documentos.
+
+**Hipótese crítica:** esse público envia propostas com frequência suficiente, sente a perda de timing como uma dor relevante e aceita pagar para reduzi-la. A escolha do ICP está confirmada como direção; sua atratividade comercial ainda precisa ser validada.
+
+### Dor prioritária
+
+> Depois de enviar uma proposta importante, o vendedor não sabe se ela continua sendo considerada nem quando vale a pena retomar a conversa.
+
+O problema prioritário não é “falta de analytics”. Analytics é apenas um possível mecanismo. O resultado buscado é reduzir follow-ups feitos no escuro e ajudar o remetente a priorizar o próximo contato.
+
+### Proposta de valor inicial
+
+> **Saiba quando uma proposta voltou a receber atenção e priorize seu próximo follow-up.**
+
+Esta formulação é uma decisão inicial de posicionamento. Ela evita prometer que uma abertura comprova intenção de compra. Expressões como “interesse real”, “momento perfeito”, “sinal de conversão” e “proposta quente” continuam sendo hipóteses até existir correlação demonstrada com resposta, avanço ou fechamento.
+
+### Caso de uso principal
+
+Acompanhar uma proposta comercial em PDF enviada a um potencial cliente.
+
+Outros documentos, públicos e usos permanecem possíveis, mas não devem ampliar o primeiro escopo antes da validação desse caso central.
+
+### Momento de ativação
+
+O upload do arquivo e a criação do link são etapas de configuração, não o valor final.
+
+O momento de ativação será considerado:
+
+> O remetente recebe o primeiro sinal de uma proposta real e considera esse sinal útil para decidir seu próximo follow-up.
+
+O primeiro acesso detectado é um microvalor. A ativação real exige utilidade percebida. Como o evento depende do destinatário, tempo até compartilhar, tempo até o primeiro sinal e retorno ao produto após o alerta devem ser medidos separadamente.
+
+### Menor fluxo capaz de entregar valor
+
+1. Criar acesso com fricção mínima.
+2. Declarar a intenção: acompanhar uma proposta.
+3. Enviar um PDF.
+4. Gerar um link rastreável.
+5. Copiar e compartilhar o link fora do Localpaper.
+6. Aguardar uma interação real, com estado claro no produto.
+7. Receber um alerta sobre a interação.
+8. Consultar uma timeline simples do documento.
+9. Informar se o sinal ajudou a decidir o follow-up.
+
+A pergunta de onboarding sobre destinatários só deve permanecer se alterar de forma útil o fluxo. Caso contrário, deve ser tratada como fricção administrativa.
+
+### Escopo recomendado do MVP
+
+O MVP deve conter apenas o necessário para validar o ciclo proposta → sinal → decisão:
+
+1. Envio de PDF.
+2. Geração de link rastreável.
+3. Experiência básica de visualização para o destinatário.
+4. Registro de primeira abertura, novas aberturas, última visita, tempo aproximado, páginas visualizadas e retorno posterior, desde que esses eventos possam ser apresentados com confiabilidade.
+5. Lista simples de propostas/documentos.
+6. Timeline por documento.
+7. Alerta de primeira abertura e retorno relevante por um único canal, ainda a confirmar.
+8. Comunicação transparente sobre as limitações dos dados.
+9. Registro manual de realização de follow-up e utilidade do sinal.
+10. Estados aplicáveis de vazio, processamento, erro, sucesso, link inválido e documento indisponível.
+
+### Fora do MVP
+
+Os itens abaixo permanecem documentados como ideias ou evidências históricas, mas não devem compor o MVP:
+
+- Assistente Ojo e demais capacidades de IA;
+- score de interesse e score de engajamento;
+- classificação automática de documentos quentes;
+- analytics agregado sofisticado;
+- taxa de conversão calculada;
+- comparação entre documentos;
+- exportação PDF/Excel e relatórios configuráveis;
+- Cofre;
+- Branding e domínio personalizado;
+- busca global;
+- tags, pastas e organização avançada;
+- múltiplos canais de alerta;
+- colaboração, times e permissões complexas;
+- onboarding para múltiplos públicos;
+- planos e paywall implementados antes da validação de cobrança;
+- automações comerciais;
+- plataforma genérica de links, QR codes personalizados ou recursos inspirados na Dub.
+
+A Dub permanece apenas como referência em espera. Nenhuma funcionalidade de seu produto foi incorporada ao escopo atual.
+
+### Sinais iniciais de retenção
+
+Estes são candidatos a sinais de retenção e precisam ser validados com comportamento real:
+
+- envio de um segundo documento rastreável em até 14 dias;
+- documentos rastreados por remetente por semana;
+- retorno ao produto após um alerta;
+- recebimento de dois ou mais sinais considerados úteis em 30 dias;
+- repetição do ciclo compartilhar → receber sinal → fazer follow-up;
+- crescimento do histórico de propostas;
+- futura adoção por um segundo remetente da mesma empresa.
+
+O principal candidato inicial a comportamento de retenção é o envio de uma segunda proposta rastreável em até 14 dias.
+
+### Hipóteses de monetização
+
+- Cobrança por workspace ou remetente ativo é a hipótese inicial mais coerente; o eixo definitivo de preço ainda não foi confirmado.
+- Cobrança por visualização deve ser evitada inicialmente por tornar o custo imprevisível no momento de maior uso.
+- Freemium não deve ser adotado antes de validar custo de atendimento, ativação curta e aquisição orgânica.
+- Os primeiros pilotos devem testar pagamento real, mesmo que com acompanhamento manual.
+- Faixas de preço, período de teste, cobrança e planos continuam pendentes e não devem ser implementados a partir deste documento.
+- A disposição a pagar deve ser comparada ao valor de uma oportunidade recuperada, não ao custo de armazenamento de arquivos.
+
+### Hipóteses críticas a validar
+
+1. A informação muda decisões de follow-up, em vez de apenas satisfazer curiosidade.
+2. O ICP envia propostas com frequência suficiente para criar recorrência.
+3. Destinatários aceitam abrir um link rastreável.
+4. Os eventos podem ser medidos e explicados com confiança suficiente.
+5. O usuário aceita substituir anexo ou link de armazenamento pelo fluxo do Localpaper.
+6. Uma oportunidade recuperada justifica o preço.
+7. O histórico acumulado cria valor crescente e retenção.
+8. Privacidade, segurança e políticas dos destinatários não bloqueiam a adoção.
+9. Pequenas equipes aceitam pagar antes de exigir integrações e colaboração.
+10. O produto consegue distinguir interação humana de prévias automáticas, scanners de segurança e bots; falsos alertas destruiriam a confiança na promessa central.
+
+### Validação antes da construção ampla
+
+1. Realizar 12–15 entrevistas baseadas na última proposta real enviada pelo participante.
+2. Buscar 5–10 pilotos pagos antes de desenvolver o produto completo.
+3. Executar um piloto concierge, entregando acompanhamento e alertas de forma manual ou assistida sempre que possível.
+4. Testar mensagens centradas em follow-up, retorno à proposta e perda de timing.
+5. Observar um protótipo com usuários, sem explicar previamente o fluxo.
+6. Pedir compromisso concreto: pagamento, depósito, carta de intenção ou acesso a um piloto real.
+7. Testar preço contra frequência e valor médio das propostas.
+8. Perguntar após cada sinal: “Isso mudou o que você faria agora?”.
+9. Comparar usuários que receberam sinais úteis com os que não receberam.
+10. Preferir entrevistas e comportamento real a testes A/B sem volume suficiente.
+
+### Métricas iniciais
+
+**Ativação:**
+
+- percentual que envia o primeiro PDF;
+- percentual que gera e compartilha o primeiro link;
+- percentual cujo link recebe uma interação humana válida;
+- percentual que visualiza o primeiro alerta;
+- percentual que declara que o alerta ajudou;
+- tempo até link compartilhado;
+- tempo até primeiro sinal útil.
+
+**North star inicial proposta:** propostas rastreadas que geraram um sinal considerado útil pelo remetente.
+
+**Retenção:**
+
+- segundo documento em 14 dias;
+- documentos rastreados por semana;
+- retorno após alertas;
+- dois ou mais sinais úteis em 30 dias;
+- retenção por ciclo de envio, D7 e D30.
+
+**Conversão comercial:**
+
+- entrevista → piloto pago;
+- piloto → continuidade paga;
+- usuário ativado → pagante;
+- preço aceito por perfil;
+- cancelamento antes e depois do primeiro sinal útil.
+
+As metas numéricas ainda precisam de uma linha de base. Cadastros, tempo de sessão e tamanho de lista não devem ser tratados como prova de valor.
+
 ## Princípios do produto
 
 ### Observados no design
@@ -331,8 +511,8 @@ Uma funcionalidade só pode ser considerada pronta quando:
 ## Hipóteses iniciais
 
 - **Confirmado:** BaseDoc e OjoDoc são nomes anteriores do Localpaper.
-- **Inferido:** o ciclo central é adicionar documento → gerar link → compartilhar → observar sinais → fazer follow-up.
-- **Inferido:** o principal usuário inicial é alguém responsável por propostas ou materiais comerciais.
+- **Decisão confirmada:** o ciclo inicial é enviar uma proposta em PDF → gerar link → compartilhar → observar um sinal confiável → decidir o follow-up.
+- **Decisão confirmada:** o primeiro ICP é formado por agências e consultorias B2B de pequeno porte, com vendas conduzidas pelo fundador ou por um pequeno time comercial.
 - **Inferido:** score, documentos quentes e alertas pretendem reduzir o tempo entre interesse e contato.
 - **Inferido:** Ojo é o nome do assistente e pode existir como página e widget.
 - **Inferido:** Branding inclui personalização de links/domínio.
@@ -364,8 +544,8 @@ Uma funcionalidade só pode ser considerada pronta quando:
 
 1. Quais assets e textos das fases BaseDoc e OjoDoc continuam válidos e quais devem ser descartados ou migrados para Localpaper?
 2. Ojo é o nome final do assistente? Ele precisa de identidade separada?
-3. Qual frase de posicionamento é oficial?
-4. Quais públicos formam o primeiro recorte e qual caso de uso vem primeiro?
+3. Qual variação da proposta “Saiba quando uma proposta voltou a receber atenção e priorize seu próximo follow-up” é mais compreendida e valorizada pelo ICP?
+4. O ICP escolhido sente a dor com frequência e intensidade suficientes para sustentar aquisição, retenção e pagamento?
 
 ### Ciclo principal
 

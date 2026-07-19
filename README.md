@@ -1,6 +1,6 @@
 # Localpaper
 
-> Documento fundador baseado exclusivamente na investigação visual do arquivo Figma `localpaper`. Nenhuma tecnologia, arquitetura ou regra não representada no design foi definida aqui.
+> Documento fundador iniciado pela investigação visual do arquivo Figma `localpaper` e consolidado por uma entrevista de definição do primeiro MVP. Fatos do design, inferências e decisões confirmadas permanecem identificados separadamente.
 
 O Localpaper é uma proposta de produto para enviar documentos, acompanhar como eles são consumidos e usar sinais de interesse para decidir quando e como fazer follow-up. O Figma mostra uma experiência que reúne documentos, métricas de abertura e leitura, analytics, alertas e assistência por IA. **Confirmado pelo responsável pelo produto:** **BaseDoc** e **OjoDoc** são nomes anteriores do Localpaper. As ocorrências dessas marcas no Figma são, portanto, evidências históricas que ainda precisam ser migradas para a identidade Localpaper; elas não representam produtos distintos. O escopo comercial mostrado nesses materiais antigos continua sujeito a confirmação.
 
@@ -123,7 +123,7 @@ O MVP deve conter apenas o necessário para validar o ciclo proposta → sinal �
 4. Registro de primeira abertura, novas aberturas, última visita, tempo aproximado, páginas visualizadas e retorno posterior, desde que esses eventos possam ser apresentados com confiabilidade.
 5. Lista simples de propostas/documentos.
 6. Timeline por documento.
-7. Alerta de primeira abertura e retorno relevante por um único canal, ainda a confirmar.
+7. Alerta por e-mail de primeira abertura e de abertura novamente.
 8. Comunicação transparente sobre as limitações dos dados.
 9. Registro manual de realização de follow-up e utilidade do sinal.
 10. Estados aplicáveis de vazio, processamento, erro, sucesso, link inválido e documento indisponível.
@@ -510,6 +510,69 @@ Uma funcionalidade só pode ser considerada pronta quando:
 
 ## Hipóteses iniciais
 
+### Decisões confirmadas para o primeiro MVP
+
+- O primeiro MVP será um produto funcional e self-service para o Vendedor, podendo usar operação concierge nos bastidores.
+- O Vendedor individual é o usuário principal e acompanha suas próprias propostas; empresa, workspace, membros e administração ficam fora do primeiro MVP.
+- O retorno humano válido a uma Proposta comercial depois do acesso inicial é o evento central de valor; a primeira visualização é um sinal secundário.
+- Proposta comercial é o termo canônico para a unidade acompanhada no primeiro MVP; Documento permanece como categoria futura mais ampla.
+- O Follow-up acontece fora do Localpaper. O produto apresenta o sinal e pode registrar manualmente a realização do contato e a utilidade percebida.
+- A fronteira descrita em “Fora do MVP” permanece válida integralmente; exceções exigem demonstrar necessidade para completar o ciclo central.
+- O Vendedor entra apenas com uma conta Google no primeiro MVP; senha, link mágico e outros provedores ficam fora.
+- O Link rastreável é público e não enumerável, não exige senha, não expira automaticamente e pode ser revogado pelo Vendedor.
+- A mensagem apresentada para um retorno válido é “Proposta aberta novamente”. Uma nova Sessão de visualização começa depois de pelo menos trinta minutos sem atividade.
+- Cada Proposta comercial contém um único PDF de até 100 MB e 100 páginas. PDFs protegidos por senha ou que não possam ser processados são rejeitados com uma explicação.
+- O Destinatário pode ler a Proposta comercial no navegador e baixar o PDF. O clique de download é registrado, mas o consumo posterior fora do Localpaper não é observável.
+- E-mail é o único canal de alerta do primeiro MVP.
+- O Vendedor pode visualizar e copiar ou revogar o Link rastreável. Arquivamento, substituição do PDF, versionamento e exclusão definitiva no fluxo normal ficam fora.
+- Autenticação, upload, processamento, link, visualização, sessões, páginas vistas, download, alertas e registros manuais de Follow-up e utilidade usam dados reais. Dados simulados são reservados a demonstrações e testes.
+- Antes de acessar o viewer, o Destinatário informa um endereço de e-mail, que será associado às suas sessões e compartilhado com o Vendedor. O Destinatário não cria conta, o endereço não é verificado e o produto o apresenta somente como E-mail informado.
+- “Proposta aberta novamente” significa uma nova sessão humana válida iniciada pelo menos trinta minutos depois da sessão anterior. Bots, scanners e prévias automáticas são descartados por melhor esforço, sem garantia absoluta.
+- O primeiro MVP possui somente cinco páginas: login com Google, lista de Propostas comerciais, Nova proposta, detalhe com timeline e viewer público.
+- A navegação do Vendedor usa cabeçalho simples com logo, Propostas, Nova proposta e menu da conta. A sidebar completa do Figma não faz parte do primeiro MVP.
+- Não há onboarding após o login. O primeiro acesso leva ao estado vazio da lista com a ação “Criar minha primeira proposta”.
+- A Proposta comercial tem título obrigatório, inicialmente derivado do nome do PDF e editável, e nome do cliente opcional. Outros metadados de organização ou funil ficam fora.
+- Login e viewer funcionam a partir de 320 px. A área do Vendedor funciona integralmente a partir de 768 px, é otimizada para desktop e pode orientar o uso de tela maior abaixo desse limite.
+- Todas as páginas devem atender à WCAG 2.2 nível AA, incluindo teclado, foco visível e não encoberto, semântica, labels, mensagens associadas, contraste, alvos adequados, zoom, reflow e informação não dependente apenas de cor.
+- A criação acontece em uma página única com título, cliente opcional e um PDF. O Link rastreável aparece somente depois do processamento e é copiado por ação explícita.
+- A lista mostra título, cliente quando informado, Status da Proposta, criação, Atividade mais recente e ação de copiar link. “Status” é o termo canônico para disponibilidade, com os valores Processando, Pronta, Falhou e Revogada. A atividade é apresentada separadamente como Ainda não aberta, Aberta ou Proposta aberta novamente.
+- O detalhe contém identificação, Status da Proposta, ações, Link rastreável, resumo factual e timeline cronológica de criação, aberturas válidas, encerramento de sessão, páginas vistas, download, Follow-up, utilidade e revogação.
+- O primeiro MVP não possui arquivamento. A revogação desativa o Link rastreável e preserva o histórico; um novo link pode ser gerado sem reativar o endereço revogado.
+- Páginas vistas correspondem às páginas efetivamente exibidas. O tempo ativo é aproximado, pausa após sessenta segundos sem atividade ou quando a aba deixa de estar visível, e não inclui consumo posterior ao download.
+- Cada página contempla os estados aplicáveis de carregamento, vazio, conteúdo, processamento, sucesso, cancelamento, falha recuperável e indisponibilidade definidos para seu fluxo.
+- Os componentes compartilhados iniciais limitam-se a cabeçalho, menu da conta, botões, campos e validação, seletor de PDF, indicador de status, feedback inline, confirmação, card de Proposta, item de timeline, toolbar do viewer, skeleton e estado vazio.
+- O detalhe oferece “Registrar follow-up”, com data e hora atuais e observação opcional. Depois do registro, pergunta “Esse sinal ajudou você a decidir o follow-up?” com Sim, Não e Ainda não sei.
+- Depois da revogação, o Vendedor pode gerar um novo Link rastreável. O endereço anterior permanece inválido e a timeline registra a revogação e a nova geração.
+- E-mails de alerta usam os assuntos “Sua proposta foi aberta” e “Sua proposta foi aberta novamente”, mostram título, cliente quando informado, horário, ressalva de aproximação e a ação “Ver atividade”. Páginas vistas e tempo permanecem na área autenticada.
+- Cada Proposta comercial pertence a exatamente um Vendedor. Somente ele acessa detalhes e ações; qualquer pessoa com um Link rastreável ativo acessa o viewer e o download. Não existem membros, administradores, transferência de propriedade ou acesso do Destinatário à timeline.
+- A jornada principal é entrar com Google, consultar a lista, criar e processar uma Proposta comercial, copiar e compartilhar o Link rastreável, receber o alerta após uma Abertura válida, consultar a atividade, realizar o Follow-up fora do Localpaper, registrá-lo e avaliar a utilidade do sinal.
+- O viewer deve informar de forma clara e amigável que aberturas, páginas visualizadas e tempo aproximado serão compartilhados com o remetente e que cookies reconhecem novas visitas. O texto final e os controles dependem de validação jurídica da base legal e não devem apresentar mera confirmação de leitura como consentimento.
+- WhatsApp é a única integração futura priorizada. Ela permanece fora do primeiro MVP; Drive, Notion, CRM e Slack não devem gerar interfaces ou preparação arquitetural antecipada.
+- O E-mail informado não é verificado no primeiro MVP; somente seu formato é validado. Ele atribui sessões a um endereço declarado, mas não comprova a identidade da pessoa.
+- O acesso a cada Proposta comercial é lembrado por noventa dias naquele navegador por meio de um identificador opaco e específico do Link rastreável. O endereço de e-mail não é armazenado diretamente no cookie nem usado para acompanhar outras Propostas.
+- Um Link rastreável aceita diversos E-mails informados e não possui lista prévia de endereços autorizados. Cada navegador mantém sessões próprias, mesmo quando informa um endereço já usado em outro navegador.
+- Para cada E-mail informado, a primeira Sessão de visualização válida é uma abertura e uma nova sessão após trinta minutos é “Proposta aberta novamente”. Um endereço diferente inicia sua própria primeira abertura.
+- A timeline e os alertas mostram o E-mail informado, sem nome ou outros dados. A comunicação usa “acesso informado como” e não afirma que uma pessoa específica abriu a Proposta.
+- Antes do viewer, a interface solicita o e-mail e informa que o endereço, as aberturas, as páginas visualizadas e o tempo aproximado serão compartilhados com o remetente. A explicação de cookies fica disponível em “Saiba mais”.
+- E-mails falsos ou compartilhados são uma limitação assumida e comunicada. O primeiro MVP não usa OTP, bloqueio de domínios ou inferência de identidade.
+- O rastreamento de consumo começa somente depois que o Destinatário informa o e-mail e aciona “Acessar proposta”. Antes disso, acessos técnicos não aparecem na timeline do Vendedor.
+- O E-mail informado e o histórico permanecem enquanto a conta e a Proposta comercial existirem. O cookie expira em noventa dias; revogar o Link rastreável não apaga eventos já registrados. A política final depende de validação jurídica.
+- IP, user agent, cabeçalhos e padrões de acesso podem ser processados apenas para filtragem, segurança e limitação de requisições. Esses dados não são exibidos ao Vendedor e devem ser minimizados ou pseudonimizados.
+- O primeiro MVP não oferece exclusão pela interface, mas exige procedimento administrativo para apagar conta, PDFs, E-mails informados, eventos e identificadores mediante solicitação.
+- O primeiro MVP usa português do Brasil, sem definir ou restringir o mercado geográfico. Os primeiros pilotos serão conduzidos no Brasil. Datas e horários são exibidos no fuso do navegador do Vendedor.
+- Devem funcionar as duas versões estáveis mais recentes de Chrome, Edge, Firefox e Safari e seus equivalentes móveis. O navegador embutido do WhatsApp deve abrir, navegar e baixar a Proposta comercial.
+- A validação interna registra login, Proposta criada, link copiado, E-mail informado, primeira abertura, abertura novamente, alerta entregue, retorno ao detalhe, Follow-up, utilidade e segunda Proposta em até quatorze dias, sem dashboard para o Vendedor.
+- Falhas de entrega de alerta recebem novas tentativas automáticas limitadas. A timeline permanece correta e o detalhe informa a falha, sem reenvio manual.
+- O piloto busca pelo menos dez Vendedores, cinco deles pagantes; setenta por cento devem criar a primeira Proposta e copiar o link; noventa por cento das sessões humanas auditadas devem aparecer uma única vez sem alertas conhecidos de bots; cinquenta por cento dos Vendedores expostos a “Proposta aberta novamente” devem considerar o sinal útil; e trinta por cento devem criar uma segunda Proposta em até quatorze dias.
+- Antes de qualquer piloto com Destinatários reais, uma revisão de privacidade deve validar base legal, aviso, controles de cookies, retenção e processo de exclusão.
+- O fluxo principal é aceito somente quando um novo Vendedor conclui login, criação, processamento, compartilhamento, recebimento de alerta, consulta da atividade, registro de Follow-up e avaliação de utilidade sem suporte operacional.
+- Os critérios do viewer cobrem ausência de rastreamento antes da ação explícita, validação do e-mail, primeira abertura, retorno antes e depois de trinta minutos, vários E-mails informados e navegadores, páginas vistas, tempo ativo, pausa por inatividade e download.
+- Os critérios de segurança cobrem isolamento entre Vendedores, separação entre link público e detalhe privado, não enumeração, revogação permanente do endereço antigo, cookies isolados por Proposta, ausência do e-mail no cookie e exclusão administrativa integral de contas de teste.
+- Os limites de arquivo são verificados nas bordas de cem megabytes e cem páginas, incluindo excesso de um byte, página adicional, corrupção e proteção por senha. Falhas recuperáveis preservam os dados já informados.
+- Em condições normais, PDFs de até vinte e cinco megabytes ficam prontos em até dois minutos e PDFs até cem megabytes em até cinco minutos; o viewer estrutura em até três segundos e mostra a primeira página em até cinco; aberturas chegam à timeline em até sessenta segundos; alertas são solicitados em até dois minutos.
+- A aceitação de interface cobre teclado, foco, leitor de tela, contraste, zoom de duzentos por cento, reflow, mensagens e recuperação para todos os estados aplicáveis, além dos navegadores confirmados.
+- O principal seam de teste é um fluxo de navegador que atravessa criação, Link rastreável, E-mail informado, visualização, retorno, caixa de e-mail de teste, timeline, Follow-up e utilidade. Seams menores são reservados a PDF, bots, Google e entrega de e-mail.
+
 - **Confirmado:** BaseDoc e OjoDoc são nomes anteriores do Localpaper.
 - **Decisão confirmada:** o ciclo inicial é enviar uma proposta em PDF → gerar link → compartilhar → observar um sinal confiável → decidir o follow-up.
 - **Decisão confirmada:** o primeiro ICP é formado por agências e consultorias B2B de pequeno porte, com vendas conduzidas pelo fundador ou por um pequeno time comercial.
@@ -538,68 +601,35 @@ Uma funcionalidade só pode ser considerada pronta quando:
 13. **Texto:** “Bem vindo” aparece sem hífen em alguns frames; “Boas vindas” e “Boas-vindas” variam.
 14. **Dimensões:** frames principais alternam entre 1920 × 1080, 1920 × 1175 e áreas internas diferentes sem regra documentada.
 
-## Perguntas pendentes
+## Fronteira de decisões do primeiro MVP
 
-### Identidade e posicionamento
+A fronteira está vazia: não restam decisões conhecidas de produto, jornada, interface, dados ou arquitetura que impeçam a especificação e o design das cinco páginas confirmadas.
 
-1. Quais assets e textos das fases BaseDoc e OjoDoc continuam válidos e quais devem ser descartados ou migrados para Localpaper?
-2. Ojo é o nome final do assistente? Ele precisa de identidade separada?
-3. Qual variação da proposta “Saiba quando uma proposta voltou a receber atenção e priorize seu próximo follow-up” é mais compreendida e valorizada pelo ICP?
-4. O ICP escolhido sente a dor com frequência e intensidade suficientes para sustentar aquisição, retenção e pagamento?
+Continuam como hipóteses a validar no piloto, não como decisões pendentes: intensidade da dor, disposição a pagar, utilidade do sinal e recorrência de uso. Revisão jurídica de privacidade, escolha do domínio de produção e credenciais dos fornecedores são pré-condições operacionais posteriores, não lacunas da definição do MVP.
 
-### Ciclo principal
+## Decisões técnicas do primeiro MVP
 
-5. Quais tipos e tamanhos de documento serão aceitos?
-6. O documento é enviado, importado, criado ou todas essas opções?
-7. Como o link é gerado, protegido, revogado e expirado?
-8. O destinatário precisa se identificar? Como leitores únicos são reconhecidos?
-9. Existe um visualizador próprio do documento? Onde estão seus estados?
-10. O follow-up ocorre dentro ou fora do produto? Como “follow-up efetivo” é registrado?
+As decisões abaixo foram confirmadas somente depois do esclarecimento dos requisitos. Elas não autorizam iniciar a implementação.
 
-### Métricas e decisões
+- O desenvolvimento deve permanecer sem custo de infraestrutura. Para os pilotos reais, aceita-se um custo-base de até cinco dólares por mês, além de domínio e excedentes previamente controlados.
+- A aplicação, incluindo a interface web, será hospedada no Cloudflare Workers. A Vercel fica fora do primeiro MVP porque seu plano gratuito não permite uso comercial e o plano Pro elevaria o custo sem substituir D1, R2, Queues ou o processador de PDFs.
+- A interface será uma SPA sem renderização no servidor, construída com TypeScript, React, Vite e React Router em Data Mode. Lucide React fornece os ícones.
+- Tailwind CSS implementa estilos e tokens visuais; Radix Primitives fornece os comportamentos acessíveis necessários de menu, modal e confirmação. A aparência continua definida pelo Localpaper, sem importar um design system visual pronto.
+- Recharts fica fora do primeiro MVP porque nenhuma das páginas confirmadas contém gráficos.
+- A área autenticada e o viewer público usam a mesma origem, separados por rotas, para simplificar cookies, OAuth, segurança e navegação.
+- Metadados, contas, sessões e eventos serão armazenados no Cloudflare D1. PDFs serão mantidos em bucket privado no Cloudflare R2 Standard.
+- Drizzle fornece schema tipado, consultas e migrações versionadas para o D1. Zod valida dados recebidos nas interfaces dos módulos e demais entradas externas.
+- Os primeiros pilotos ocorrerão no Brasil, mas D1 e R2 não oferecem garantia de residência dos dados no país. A revisão de privacidade anterior ao piloto deve avaliar localização e transferência internacional de dados.
+- O Vendedor entra somente com Google. Better Auth administra autenticação e sessões, persistidas no D1, usando apenas os escopos básicos necessários de perfil e e-mail.
+- Alertas usam Resend e processamento assíncrono por Cloudflare Queues, com tentativas automáticas limitadas e registro de falha.
+- A validação definitiva do PDF acontece em processador assíncrono isolado, acionado pela fila. Validações no navegador podem antecipar feedback, mas não determinam que a Proposta está Pronta.
+- A aplicação é um monólito modular, inicialmente dividido nos módulos Identidade, Propostas, Visualização, Notificações e Validação do piloto.
+- A atividade é registrada cronologicamente de forma imutável, sem adotar event sourcing completo; o Status da Proposta e demais dados atuais permanecem armazenados diretamente.
+- Seams são introduzidos somente para dependências que realmente variam entre produção e testes: armazenamento, fila, entrega de e-mail, relógio e classificação de acessos automatizados.
+- A verificação usa Vitest, Playwright e axe-core. A observabilidade começa com os recursos nativos da infraestrutura; Sentry gratuito só será acrescentado se esses recursos forem insuficientes.
+- O armazenamento recebe alerta operacional antes de atingir oito gigabytes, acompanhado dos limites de banco, fila e e-mail, sem expor quotas ou planos ao Vendedor no primeiro MVP.
 
-11. Qual a definição de abertura, visualização, leitor ativo, visita e compartilhamento?
-12. Como tempo de visualização e tempo por página são calculados?
-13. Como são calculados score de engajamento, score de interesse, sinal quente e taxa de conversão?
-14. Quais períodos e comparações são padrão?
-15. Rankings e variações usam qual janela e base de comparação?
-16. Quais métricas podem ser exportadas e em quais formatos?
-
-### Assistente e alertas
-
-17. Quais ações do Assistente realmente fazem parte do primeiro produto?
-18. O Assistente apenas responde ou também altera/configura dados?
-19. Quais fontes, limites e critérios de confiança uma resposta deve mostrar?
-20. Quais eventos disparam alertas e por quais canais?
-
-### Produto e operação
-
-21. O que é o Cofre?
-22. O que pode ser configurado em Branding e domínio personalizado?
-23. Quais papéis de usuário e permissões existem?
-24. Conta, time e workspace são entidades diferentes?
-25. O produto terá teste grátis, planos e assinatura? Os e-mails BaseDoc continuam válidos?
-26. Qual é o fluxo correto entre cadastro e login, incluindo senha e recuperação?
-27. Quais versões de cada frame são as atuais e quais devem ser arquivadas?
-28. Quais requisitos de acessibilidade e dispositivos precisam ser suportados primeiro?
-
-## Fora de escopo neste momento
-
-Ainda **não foram definidos**:
-
-- stack;
-- arquitetura;
-- banco de dados;
-- autenticação;
-- integrações;
-- infraestrutura;
-- hospedagem;
-- pagamentos;
-- analytics;
-- estratégia de testes;
-- modelo de segurança.
-
-Nenhuma dessas decisões deve ser presumida a partir deste README ou escolhida sem uma tarefa e confirmação específicas.
+Não restam decisões técnicas conhecidas que bloqueiem a especificação. Pagamentos, analytics de produto visíveis ao Vendedor e integrações futuras permanecem fora do primeiro MVP.
 
 ## Inventário da investigação no Figma
 
